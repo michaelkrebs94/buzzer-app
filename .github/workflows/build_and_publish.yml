@@ -8,6 +8,9 @@ on:
 jobs:
   build_and_publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - name: Checkout repository
@@ -25,4 +28,4 @@ jobs:
 
       - name: Build, tag and push Docker image
         working-directory: frontend
-        run: docker buildx build --file Dockerfile --tag ghcr.io/${{ github.repository }}:${{ github.sha }} --push .
+        run: docker buildx build --file Dockerfile --tag ghcr.io/${{ github.repository }}:${{ github.sha }} --tag ghcr.io/${{ github.repository }}:latest --push .
