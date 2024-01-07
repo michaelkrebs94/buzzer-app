@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useSettingsStore } from '@/stores/settings';
 import 'primeicons/primeicons.css';
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 
 function openOrCloseSettings() {
     if (window.location.href.includes('/settings')) {

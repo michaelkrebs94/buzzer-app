@@ -6,7 +6,8 @@ import tinycolor from 'tinycolor2';
 
 // determine the backgroud color for the given participant id
 const route = useRoute()
-const participantId: number = Number.parseInt(route.params.id);
+
+const participantId: number = Number.parseInt(route.params.id.toString());
 const participant = useSettingsStore().settings.participants[participantId];
 const showName = useSettingsStore().settings.showNames;
 const backgroundColor = participant ? participant.color : '#000';

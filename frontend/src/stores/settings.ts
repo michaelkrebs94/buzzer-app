@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 const COLORS = ['#0000ff', '#ff0000', '#00ff00', '#ffff00', '#00ffff', '#ff00ff', '#ffffff', '#000000', '#800000', '#008000', '#000080', '#808000', '#800080', '#008080', '#808080', '#c0c0c0', '#808040', '#004040', '#8080ff', '#ff8080', '#ffff80']
