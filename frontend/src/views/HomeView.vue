@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useSettingsStore } from '@/stores/settings';
+import { useI18n } from 'vue-i18n';
 
 
 const keyBindings = useSettingsStore().getKeyBindings();
@@ -14,12 +15,13 @@ const keyDownHandler = (event: KeyboardEvent) => {
 
 window.addEventListener('keydown', keyDownHandler);
 
+const { t } = useI18n();
 
 </script>
 
 <template>
   <main>
-    <h1>Waiting..</h1>
+    <h1>{{ t('waiting') }}</h1>
   </main>
 </template>
 
@@ -32,3 +34,14 @@ main {
   align-items: center;
 }
 </style>
+
+<i18n>
+  {
+    "en": {
+      "waiting": "press buzzer.."
+    },
+    "de": {
+      "waiting": "Buzzer drücken.."
+    }
+  }
+</i18n>

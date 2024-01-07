@@ -1,50 +1,79 @@
 <script setup lang="ts">
 import { useSettingsStore } from '@/stores/settings';
+import { useI18n } from 'vue-i18n';
 
 
 const settings = useSettingsStore()
+const { t } = useI18n();
 </script>
 
 <template>
   <main>
-    <h1>Settings</h1>
+    <h1> {{ t('settings') }}</h1>
     <form>
       <div>
         <input type="checkbox" id="show-names" v-model="settings.settings.showNames" @change="settings.updateSettings" />
-        <label for="show-names">Show names</label>
+        <label for="show-names"> {{ t('show-names') }}</label>
       </div>
       <div>
         <input type="checkbox" id="show-setting-icon" v-model="settings.settings.showSettingsIcon"
           @change="settings.updateSettings" />
-        <label for="show-setting-icon">Show settings icon</label>
+        <label for="show-setting-icon">{{ t('show-setting-icon') }}</label>
       </div>
       <div>
         <input type="checkbox" id="alt-keybindings" v-model="settings.settings.useAltKeyBindings"
           @change="settings.updateSettings" />
-        <label for="alt-keybindings">Use alternative keyboard bindings</label>
+        <label for="alt-keybindings">{{ t('alt-keybindings') }}</label>
       </div>
       <div class="participants">
         <div class="participant" v-for="participant in settings.settings.participants.entries()" :key="participant[0]">
-          <h3>Participant {{ participant[0] + 1 }}</h3>
+          <h3>{{ t('participant') }} {{ participant[0] + 1 }}</h3>
           <div>
-            <label :for="'name' + participant[0]">Name</label>
+            <label :for="'name' + participant[0]">{{ t('name') }}</label>
             <input :id="'name' + participant[0]" type="text" v-model="participant[1].name"
               @change="settings.updateSettings" />
           </div>
           <div>
-            <label :for="'color' + participant[0]">Color</label>
+            <label :for="'color' + participant[0]">{{ t('color') }}</label>
             <input :id="'color' + participant[0]" type="color" v-model="participant[1].color"
               @change="settings.updateSettings" />
           </div>
         </div>
       </div>
       <div class="add-remove">
-        <button type="button" @click="settings.addParticipant">Add participant</button>
-        <button type="button" @click="settings.removeParticipant">Remove participant</button>
+        <button type="button" @click="settings.addParticipant">{{ t('add-participant') }}</button>
+        <button type="button" @click="settings.removeParticipant"> {{ t('remove-participant') }}</button>
       </div>
     </form>
   </main>
 </template>
+
+<i18n>
+  {
+    "en": {
+      "settings": "Settings",
+      "show-names": "Show participant name on result screen",
+      "show-setting-icon": "Show settings icon",
+      "alt-keybindings": "Use keyboard instead of buzzer",
+      "participant": "Participant",
+      "name": "Name",
+      "color": "Color",
+      "add-participant": "Add participant",
+      "remove-participant": "Remove participant"
+    },
+    "de": {
+      "settings": "Einstellungen",
+      "show-names": "Teilnehmer-Namen auf Ergebnis-Seite anzeigen",
+      "show-setting-icon": "Einstellungs-Icon anzeigen",
+      "alt-keybindings": "Tastatur statt Buzzer benutzen",
+      "participant": "Teilnehmer",
+      "name": "Name",
+      "color": "Farbe",
+      "add-participant": "Teilnehmer hinzufügen",
+      "remove-participant": "Teilnehmer entfernen"
+    }
+  }
+</i18n>
 
 <style scoped>
 label {
