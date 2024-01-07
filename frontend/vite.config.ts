@@ -12,6 +12,12 @@ export default defineConfig({
       registerType: "autoUpdate",
       devOptions: {
         enabled: true
+      },
+      manifest: {
+        name: 'Buzzer',
+        short_name: 'Buzzer',
+        theme_color: '#181818',
+        display: 'standalone',
       }
     })
 
