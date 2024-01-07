@@ -16,9 +16,11 @@ const backgroundColor = participant ? participant.color : '#000';
 const textColor = tinycolor(backgroundColor).isLight() ? '#000' : '#fff';
 
 // redirect to home when screen is touched or clicked
-window.addEventListener('click', () => {
+const handler = () => {
     window.location.href = '/';
-});
+};
+window.addEventListener('touchstart', handler);
+window.addEventListener('click', handler);
 
 </script>
 
