@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  devcontainer:
+    image: mcr.microsoft.com/devcontainers/base:jammy
+    volumes:
+      - /dev/tty.usbmodem1401:/dev/tty.usbmodem1401
+      - ../:/workspace/hardware/:cached
+    privileged: true
+    command: sleep infinity
