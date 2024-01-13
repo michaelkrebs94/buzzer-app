@@ -10,6 +10,7 @@ const route = useRoute()
 const participantId: number = Number.parseInt(route.params.id.toString());
 const participant = useSettingsStore().settings.participants[participantId];
 const showName = useSettingsStore().settings.showNames;
+const returnOnKeyUp = useSettingsStore().settings.returnOnKeyUp;
 const backgroundColor = participant ? participant.color : '#000';
 
 // use black or white text color depending on the background color brightness
@@ -21,6 +22,14 @@ const handler = () => {
 };
 window.addEventListener('touchstart', handler);
 window.addEventListener('click', handler);
+
+if (returnOnKeyUp) {
+    const keyUpHandler = () => {
+        window.removeEventListener('keyup', keyUpHandler);
+        window.location.href = '/';
+    };
+    window.addEventListener('keyup', keyUpHandler);
+}
 
 </script>
 

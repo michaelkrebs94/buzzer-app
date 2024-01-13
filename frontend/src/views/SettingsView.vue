@@ -25,6 +25,11 @@ const { t } = useI18n();
           @change="settings.updateSettings" />
         <label for="alt-keybindings">{{ t('alt-keybindings') }}</label>
       </div>
+      <div>
+        <input type="checkbox" id="return-keyup" v-model="settings.settings.returnOnKeyUp"
+          @change="settings.updateSettings" />
+        <label for="return-keyup">{{ t('return-keyup') }}</label>
+      </div>
       <div class="participants">
         <div class="participant" v-for="participant in settings.settings.participants.entries()" :key="participant[0]">
           <h3>{{ t('participant') }} {{ participant[0] + 1 }}</h3>
@@ -54,7 +59,8 @@ const { t } = useI18n();
       "settings": "Settings",
       "show-names": "Show participant name on result screen",
       "show-setting-icon": "Show settings icon",
-      "alt-keybindings": "Use keyboard instead of buzzer",
+      "alt-keybindings": "Use numbers 1-8 instead of F13-F20",
+      "return-keyup": "Return to home screen when buzzer is released",
       "participant": "Participant",
       "name": "Name",
       "color": "Color",
@@ -65,7 +71,8 @@ const { t } = useI18n();
       "settings": "Einstellungen",
       "show-names": "Teilnehmer-Namen auf Ergebnis-Seite anzeigen",
       "show-setting-icon": "Einstellungs-Icon anzeigen",
-      "alt-keybindings": "Tastatur statt Buzzer benutzen",
+      "alt-keybindings": "Zahlen 1-8 statt F13-F20 verwenden",
+      "return-keyup": "Beim Loslassen des Buzzers zur Startseite zurückkehren",
       "participant": "Teilnehmer",
       "name": "Name",
       "color": "Farbe",

@@ -20,6 +20,7 @@ export type AppSettings = {
   showNames: boolean
   showSettingsIcon: boolean
   useAltKeyBindings: boolean
+  returnOnKeyUp: boolean
 }
 
 function getDefaultSettings(): AppSettings {
@@ -27,7 +28,8 @@ function getDefaultSettings(): AppSettings {
     participants: [new Participant(0)],
     showNames: true,
     showSettingsIcon: true,
-    useAltKeyBindings: false
+    useAltKeyBindings: true,
+    returnOnKeyUp: false
   }
 }
 
