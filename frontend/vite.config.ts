@@ -21,6 +21,9 @@ export default defineConfig({
         short_name: 'Buzzer',
         theme_color: '#181818',
         display: 'standalone',
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,svg,wav}']
       }
     }),
     VueI18nPlugin({
