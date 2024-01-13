@@ -2,14 +2,15 @@
 import { useSettingsStore } from '@/stores/settings';
 import { useI18n } from 'vue-i18n';
 
-
 const keyBindings = useSettingsStore().getKeyBindings();
+const emit = defineEmits(['buzzer-pressed']);
 
 const keyDownHandler = (event: KeyboardEvent) => {
   const keyIndex = keyBindings.indexOf(event.key);
   if (keyIndex !== -1) {
     window.removeEventListener('keydown', keyDownHandler);
     window.location.href = `/result/${keyIndex}`;
+    emit('buzzer-pressed');
   }
 };
 
