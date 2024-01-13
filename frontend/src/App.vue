@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-import SettingsIcon from '@/components/SettingsIcon.vue'
+import { RouterView } from 'vue-router';
+import SettingsIcon from '@/components/SettingsIcon.vue';
 
+// @ts-ignore
 import { useSound } from '@vueuse/sound';
-import sfx from "./assets/sound/buzzer.wav"
+import sfx from './assets/sound/buzzer.wav';
 
 const { play } = useSound(sfx, { volume: 1, interrupt: false });
 </script>
@@ -12,4 +13,3 @@ const { play } = useSound(sfx, { volume: 1, interrupt: false });
   <SettingsIcon />
   <RouterView @buzzer-pressed="play" />
 </template>
-

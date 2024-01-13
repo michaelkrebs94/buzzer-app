@@ -17,7 +17,6 @@ const keyDownHandler = (event: KeyboardEvent) => {
 window.addEventListener('keydown', keyDownHandler);
 
 const { t } = useI18n();
-
 </script>
 
 <template>
